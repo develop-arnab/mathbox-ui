@@ -20,8 +20,7 @@ const FormulaSelector: React.FC<FormulaSelectorProps> = ({
 
   const getAllFormulas = async () => {
     try {
-      const apiUrl = "http://127.0.0.1:8000/get_formulas_by_chapter/1";
-
+      const apiUrl = `${process.env.NEXT_PUBLIC_BASE_URL}/get_formulas_by_chapter/1`;
       // Make the GET request to the Django server
       const response = await fetch(apiUrl, {
         method: "GET",

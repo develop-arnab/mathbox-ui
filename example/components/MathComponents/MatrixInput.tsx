@@ -77,7 +77,7 @@ const MatrixInput: React.FC<MatrixInputProps> = ({
   const calculateMatrix = async () => {
     try {
       // Define the API endpoint
-      const apiUrl = "http://127.0.0.1:8000/calculate/";
+      const apiUrl = `${process.env.NEXT_PUBLIC_BASE_URL}/calculate/`;
 
       // Create the request data
       const requestData = {
