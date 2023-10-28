@@ -1,11 +1,10 @@
-import React from 'react'
+import React from "react";
 
+import CTA from "example/components/CTA";
+import PageTitle from "example/components/Typography/PageTitle";
 
-import CTA from 'example/components/CTA'
-import PageTitle from 'example/components/Typography/PageTitle'
-
-import Layout from 'example/containers/Layout'
-import MatrixInput from 'example/components/MathComponents/MatrixInput'
+import Layout from "example/containers/Layout";
+import MatrixInput from "example/components/MathComponents/MatrixInput";
 
 function Forms() {
   return (
@@ -21,4 +20,4 @@ function Forms() {
   );
 }
 
-export default Forms
+export default Forms;

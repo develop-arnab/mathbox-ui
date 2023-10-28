@@ -2,12 +2,14 @@
 import React, { useState, useEffect } from "react";
 // import "./FormulaSelector.css"; // Import the CSS file
 interface FormulaSelectorProps {
+  chapterId?: number;
   formulaId: number;
   onSelectFormula: (formulaId: number) => void;
   formulaList?: Array<Number>;
 }
 
 const FormulaSelector: React.FC<FormulaSelectorProps> = ({
+  chapterId,
   formulaId,
   onSelectFormula,
   formulaList
@@ -20,7 +22,7 @@ const FormulaSelector: React.FC<FormulaSelectorProps> = ({
 
   const getAllFormulas = async () => {
     try {
-      const apiUrl = `${process.env.NEXT_PUBLIC_BASE_URL}/get_formulas_by_chapter/1`;
+      const apiUrl = `${process.env.NEXT_PUBLIC_BASE_URL}/get_formulas_by_chapter/${chapterId}`;
       // Make the GET request to the Django server
       const response = await fetch(apiUrl, {
         method: "GET",

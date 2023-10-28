@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import PageTitle from "example/components/Typography/PageTitle";
 import Layout from "example/containers/Layout";
 import Tex2SVG from "react-hook-mathjax";
+import FormulaSelector from "../../example/components/MathComponents/FormulaSelector";
 import {
   Chart,
   ArcElement,
@@ -15,6 +16,7 @@ import {
   Legend
 } from "chart.js";
 import { Button } from "@roketid/windmill-react-ui";
+import { Card, CardBody } from "@roketid/windmill-react-ui";
 const getErrorFromHTML = (html: any) =>
   html.children[1].firstChild.firstChild.attributes["data-mjx-error"].value;
 //@ts-ignore
@@ -23,7 +25,6 @@ function EquationInput({ equation, onChange, onRemove }) {
   const [lastValidInput, setLastValidInput] = useState(equation);
   const [error, setError] = useState(null);
   const hasError = error !== null;
-
   return (
     <>
       {typeof window !== "undefined" && (
@@ -82,6 +83,9 @@ function Charts() {
   const [equationCount, setEquationCount] = useState(3);
   const initialEquations = new Array(equationCount).fill(""); // Initialize equations as empty strings
   const [equations, setEquations] = useState(initialEquations);
+  const [result, setResult] = useState([]);
+  const [formulaId, setFormulaId] = useState<number>(12);
+
   const addEquation = () => {
     setEquations([...equations, ""]);
     setEquationCount(equationCount + 1);
@@ -101,13 +105,47 @@ function Charts() {
       setEquations(updatedEquations);
     }
   };
-  const collectEquations = () => {
+  const collectEquations = async () => {
     const nonEmptyEquations = equations.filter((eq) => eq.trim() !== "");
     console.log("Collected Equations:", nonEmptyEquations);
     // You can call your conversion function here
     const { coefficients, constants } =
       convertEquationsToCoefficients(nonEmptyEquations);
     console.log("COFS ", coefficients, "CONS ", constants);
+
+    try {
+      // Define the API endpoint
+      const apiUrl = `${process.env.NEXT_PUBLIC_BASE_URL}/calculate/`;
+
+      // Create the request data
+      const requestData = {
+        formula: 12, // Replace with the desired formula ID
+        input_values: {
+          coefficients: coefficients,
+          constants: constants
+        }
+      };
+      console.log("Request IS ", requestData);
+      // Make the POST request to the Django server
+      const response = await fetch(apiUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(requestData)
+      });
+
+      if (!response.ok) {
+        throw new Error("API request failed");
+      }
+
+      // Parse the JSON response
+      const data = await response.json();
+      console.log("Linear eq solution ", data);
+      setResult(data.result);
+    } catch (error) {
+      console.error("API request error:", error);
+    }
   };
 
   function convertEquationsToCoefficients(equations: any) {
@@ -152,36 +190,52 @@ function Charts() {
       constants
     };
   }
-
+  const handleSelectFormula = (selectedFormulaId: number) => {
+    setFormulaId(selectedFormulaId);
+  };
   return (
     <Layout>
       <PageTitle>Systems of Linear Equations</PageTitle>
-      <div>
-        <input
-          type="number"
-          value={equationCount}
-          onChange={(e) => {
-            const count = parseInt(e.target.value);
-            setEquationCount(count);
-            setEquations(Array(count).fill(""));
-          }}
-        />
-
-        {/* <button onClick={addEquation}>Add Equation</button> */}
-        {equations.map((equation, index) => (
-          <EquationInput
-            key={index}
-            equation={equation}
-            onRemove={() => removeEquation(index)}
-            onChange={(newEquation: any) =>
-              handleEquationChange(index, newEquation)
-            }
+      <div style={{ display: "flex" }}>
+        <div>
+          <FormulaSelector
+            chapterId={2}
+            formulaList={[12, 20]}
+            formulaId={formulaId}
+            onSelectFormula={handleSelectFormula}
           />
-        ))}
-
-        <Button layout="outline" onClick={collectEquations}>
-          Calculate
-        </Button>
+        </div>
+        <div>
+          <input
+            type="number"
+            value={equationCount}
+            onChange={(e) => {
+              const count = parseInt(e.target.value);
+              setEquationCount(count);
+              setEquations(Array(count).fill(""));
+            }}
+          />
+          {/* <button onClick={addEquation}>Add Equation</button> */}
+          {equations.map((equation, index) => (
+            <EquationInput
+              key={index}
+              equation={equation}
+              onRemove={() => removeEquation(index)}
+              onChange={(newEquation: any) =>
+                handleEquationChange(index, newEquation)
+              }
+            />
+          ))}
+          <Button layout="outline" onClick={collectEquations}>
+            Calculate
+          </Button>
+          <Card colored className="text-white bg-purple-600">
+            <CardBody>
+              <p className="mb-4 font-semibold">Result</p>
+              <p>{result}</p>
+            </CardBody>
+          </Card>
+        </div>
       </div>
     </Layout>
   );

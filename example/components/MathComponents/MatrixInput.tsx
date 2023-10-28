@@ -136,6 +136,7 @@ const MatrixInput: React.FC<MatrixInputProps> = ({
       {/* Add the FormulaSelector component */}
       <div style={{ flex: 1 }}>
         <FormulaSelector
+          chapterId={1}
           formulaList={formulas}
           formulaId={formulaId}
           onSelectFormula={handleSelectFormula}

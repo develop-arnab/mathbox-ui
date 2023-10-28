@@ -160,11 +160,12 @@ const VectorOps: React.FC<VectorOpsProps> = ({
       }}
     >
       {/* Add the FormulaSelector component */}
-        <FormulaSelector
-          formulaList={formulas}
-          formulaId={formulaId}
-          onSelectFormula={handleSelectFormula}
-        />
+      <FormulaSelector
+        chapterId={1}
+        formulaList={formulas}
+        formulaId={formulaId}
+        onSelectFormula={handleSelectFormula}
+      />
       <div className="matrix-input-container">
         <div className="row-column-inputs">
           <div className="input-group">
