@@ -1,14 +1,14 @@
 import React from "react";
 
 import { Card, CardBody } from "@roketid/windmill-react-ui";
-import PageTitle from "example/components/Typography/PageTitle";
-import SectionTitle from "example/components/Typography/SectionTitle";
-import CTA from "example/components/CTA";
-import InfoCard from "example/components/Cards/InfoCard";
-import RoundIcon from "example/components/RoundIcon";
-import Layout from "example/containers/Layout";
+import PageTitle from "maths/components/Typography/PageTitle";
+import SectionTitle from "maths/components/Typography/SectionTitle";
+import CTA from "maths/components/CTA";
+import InfoCard from "maths/components/Cards/InfoCard";
+import RoundIcon from "maths/components/RoundIcon";
+import Layout from "maths/containers/Layout";
 import { CartIcon, ChatIcon, MoneyIcon, PeopleIcon } from "icons";
-import VectorOps from "example/components/MathComponents/VectorOps";
+import VectorOps from "maths/components/MathComponents/VectorOps";
 
 function Cards() {
   return (

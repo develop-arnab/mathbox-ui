@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import PageTitle from "example/components/Typography/PageTitle";
-import Layout from "example/containers/Layout";
+import PageTitle from "maths/components/Typography/PageTitle";
+import Layout from "maths/containers/Layout";
 import Tex2SVG from "react-hook-mathjax";
-import FormulaSelector from "../../example/components/MathComponents/FormulaSelector";
-import SectionTitle from "example/components/Typography/SectionTitle";
+import FormulaSelector from "../../maths/components/MathComponents/FormulaSelector";
+import SectionTitle from "maths/components/Typography/SectionTitle";
 import { Button } from "@roketid/windmill-react-ui";
 import { Card, CardBody } from "@roketid/windmill-react-ui";
 interface StatsProps {

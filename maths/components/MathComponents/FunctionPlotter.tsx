@@ -2,8 +2,8 @@
 import React, { useState } from "react";
 // import Plot from "react-plotly.js";
 import { Doughnut, Line, Bar } from "react-chartjs-2";
-import ChartCard from "example/components/Chart/ChartCard";
-import ChartLegend from "example/components/Chart/ChartLegend";
+import ChartCard from "maths/components/Chart/ChartCard";
+import ChartLegend from "maths/components/Chart/ChartLegend";
 import {
   doughnutOptions,
   lineOptions,
@@ -27,21 +27,21 @@ import {
 type Props = {
   xdata?: Array<number>;
   ydata?: Array<number>;
-  result ? :Array<number>;
+  result?: Array<number>;
 };
 
 export default function FunctionPlotter(props: Props) {
-    Chart.register(
-      ArcElement,
-      BarElement,
-      CategoryScale,
-      LinearScale,
-      PointElement,
-      LineElement,
-      Title,
-      Tooltip,
-      Legend
-    );
+  Chart.register(
+    ArcElement,
+    BarElement,
+    CategoryScale,
+    LinearScale,
+    PointElement,
+    LineElement,
+    Title,
+    Tooltip,
+    Legend
+  );
   const [message, setMessage] = useState("");
 
   const lineData = {

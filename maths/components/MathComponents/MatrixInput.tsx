@@ -4,29 +4,38 @@ import React, { useState, useEffect } from "react";
 import FormulaSelector from "./FormulaSelector";
 import { Card, CardBody } from "@roketid/windmill-react-ui";
 import { Button } from "@roketid/windmill-react-ui";
-import SectionTitle from "example/components/Typography/SectionTitle";
+import SectionTitle from "maths/components/Typography/SectionTitle";
 interface MatrixInputProps {
   initialRows: number;
   initialColumns: number;
   formulas?: Array<Number>;
+  selected?: String;
+  updateFormula?: any;
 }
 
 const MatrixInput: React.FC<MatrixInputProps> = ({
   initialRows,
   initialColumns,
-  formulas
+  formulas,
+  selected,
+  updateFormula
 }) => {
   const [result, setResult] = useState("");
-  const [formulaId, setFormulaId] = useState<number>(1);
+  const [formulaId, setFormulaId] = useState<number>(Number(selected));
   const [rows, setRows] = useState(initialRows);
   const [columns, setColumns] = useState(initialColumns);
   const [matrix, setMatrix] = useState<string[][]>(() => {
     // Initialize the matrix based on the initial rows and columns
     return [...Array(initialRows)].map(() => Array(initialColumns).fill(""));
   });
+
+  useEffect(() => {
+    setFormulaId(Number(selected));
+  }, [selected]);
   const [calculationResult, setCalculationResult] = useState<any>(null); // Store the calculation result
   const handleSelectFormula = (selectedFormulaId: number) => {
     setFormulaId(selectedFormulaId);
+    updateFormula(selectedFormulaId);
   };
 
   const handleInputChange = (rowIdx: number, colIdx: number, value: string) => {

@@ -4,7 +4,7 @@ import FormulaSelector from "./FormulaSelector";
 import FunctionPlotter from "./FunctionPlotter";
 import { Card, CardBody } from "@roketid/windmill-react-ui";
 import { Button } from "@roketid/windmill-react-ui";
-import SectionTitle from "example/components/Typography/SectionTitle";
+import SectionTitle from "maths/components/Typography/SectionTitle";
 interface VectorOpsProps {
   initialVectors: number;
   initialRows: number;

@@ -1,13 +1,21 @@
-import React, { useContext } from 'react'
-import Link from 'next/link'
-import Image from 'next/image'
+import React, { useContext } from "react";
+import Link from "next/link";
+import Image from "next/image";
 
-import { GithubIcon, TwitterIcon } from 'icons'
-import { Input, Label, Button, WindmillContext } from '@roketid/windmill-react-ui'
+import { GithubIcon, TwitterIcon } from "icons";
+import {
+  Input,
+  Label,
+  Button,
+  WindmillContext
+} from "@roketid/windmill-react-ui";
 
 function CrateAccount() {
-  const { mode } = useContext(WindmillContext)
-  const imgSource = mode === 'dark' ? '/assets/img/create-account-office-dark.jpeg' : '/assets/img/create-account-office.jpeg'
+  const { mode } = useContext(WindmillContext);
+  const imgSource =
+    mode === "dark"
+      ? "/assets/img/create-account-office-dark.jpeg"
+      : "/assets/img/create-account-office.jpeg";
 
   return (
     <div className="flex items-center min-h-screen p-6 bg-gray-50 dark:bg-gray-900">
@@ -19,7 +27,7 @@ function CrateAccount() {
               className="object-cover w-full h-full"
               src={imgSource}
               alt="Office"
-              layout='fill'
+              layout="fill"
             />
           </div>
           <main className="flex items-center justify-center p-6 sm:p-12 md:w-1/2">
@@ -29,28 +37,38 @@ function CrateAccount() {
               </h1>
               <Label>
                 <span>Email</span>
-                <Input className="mt-1" type="email" placeholder="john@doe.com" />
+                <Input
+                  className="mt-1"
+                  type="email"
+                  placeholder="john@doe.com"
+                />
               </Label>
               <Label className="mt-4">
                 <span>Password</span>
-                <Input className="mt-1" placeholder="***************" type="password" />
+                <Input
+                  className="mt-1"
+                  placeholder="***************"
+                  type="password"
+                />
               </Label>
               <Label className="mt-4">
                 <span>Confirm password</span>
-                <Input className="mt-1" placeholder="***************" type="password" />
+                <Input
+                  className="mt-1"
+                  placeholder="***************"
+                  type="password"
+                />
               </Label>
 
               <Label className="mt-6" check>
                 <Input type="checkbox" />
                 <span className="ml-2">
-                  I agree to the <span className="underline">privacy policy</span>
+                  I agree to the{" "}
+                  <span className="underline">privacy policy</span>
                 </span>
               </Label>
 
-              <Link
-                  href='/example/login'
-                  passHref={true}
-                >
+              <Link href="/maths/login" passHref={true}>
                 <Button block className="mt-4">
                   Create account
                 </Button>
@@ -68,10 +86,8 @@ function CrateAccount() {
               </Button>
 
               <p className="mt-4">
-                <Link href="/example/login">
-                  <a
-                    className="text-sm font-medium text-purple-600 dark:text-purple-400 hover:underline"
-                  >
+                <Link href="/maths/login">
+                  <a className="text-sm font-medium text-purple-600 dark:text-purple-400 hover:underline">
                     Already have an account? Login
                   </a>
                 </Link>
@@ -81,7 +97,7 @@ function CrateAccount() {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default CrateAccount
+export default CrateAccount;

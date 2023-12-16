@@ -27,48 +27,48 @@ export function routeIsActive(pathname: String, route: IRoute): boolean {
 
 const routes: IRoute[] = [
   {
-    path: "/example", // the url
+    path: "/maths", // the url
     icon: "HomeIcon", // the component being exported from icons/index.js
     name: "Dashboard", // name that appear in Sidebar
     exact: true
   },
   {
-    path: "/example/matrices",
+    path: "/maths/matrices",
     icon: "FormsIcon",
     name: "Matrices"
   },
   {
-    path: "/example/vectors",
+    path: "/maths/vectors",
     icon: "CardsIcon",
     name: "Vectors"
   },
   {
-    path: "/example/linear-equations",
+    path: "/maths/linear-equations",
     icon: "ChartsIcon",
     name: "LinearEquations"
   },
   {
-    path: "/example/statistics",
+    path: "/maths/statistics",
     icon: "ChartsIcon",
     name: "Statistics"
   }
   // {
-  //   path: "/example/charts",
+  //   path: "/maths/charts",
   //   icon: "ChartsIcon",
   //   name: "Charts"
   // },
   // {
-  //   path: "/example/buttons",
+  //   path: "/maths/buttons",
   //   icon: "ButtonsIcon",
   //   name: "Buttons"
   // },
   // {
-  //   path: "/example/modals",
+  //   path: "/maths/modals",
   //   icon: "ModalsIcon",
   //   name: "Modals"
   // },
   // {
-  //   path: "/example/tables",
+  //   path: "/maths/tables",
   //   icon: "TablesIcon",
   //   name: "Tables"
   // },
@@ -78,23 +78,23 @@ const routes: IRoute[] = [
   //   routes: [
   //     // submenu
   //     {
-  //       path: "/example/login",
+  //       path: "/maths/login",
   //       name: "Login"
   //     },
   //     {
-  //       path: "/example/create-account",
+  //       path: "/maths/create-account",
   //       name: "Create account"
   //     },
   //     {
-  //       path: "/example/forgot-password",
+  //       path: "/maths/forgot-password",
   //       name: "Forgot password"
   //     },
   //     {
-  //       path: "/example/404",
+  //       path: "/maths/404",
   //       name: "404"
   //     },
   //     {
-  //       path: "/example/blank",
+  //       path: "/maths/blank",
   //       name: "Blank"
   //     }
   //   ]

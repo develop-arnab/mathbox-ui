@@ -19,7 +19,9 @@ const FormulaSelector: React.FC<FormulaSelectorProps> = ({
   useEffect(() => {
     getAllFormulas();
   }, []);
-
+  useEffect(() => {
+    console.log("FORM SELECTOR ", formulaId);
+  }, [formulaId]);
   const getAllFormulas = async () => {
     try {
       const apiUrl = `${process.env.NEXT_PUBLIC_BASE_URL}/get_formulas_by_chapter/${chapterId}`;

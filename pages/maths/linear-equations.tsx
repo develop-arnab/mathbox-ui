@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import PageTitle from "example/components/Typography/PageTitle";
-import Layout from "example/containers/Layout";
+import PageTitle from "maths/components/Typography/PageTitle";
+import Layout from "maths/containers/Layout";
 import Tex2SVG from "react-hook-mathjax";
-import FormulaSelector from "../../example/components/MathComponents/FormulaSelector";
+import FormulaSelector from "../../maths/components/MathComponents/FormulaSelector";
 import {
   Chart,
   ArcElement,

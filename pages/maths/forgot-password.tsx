@@ -1,12 +1,20 @@
-import { useContext } from 'react'
-import Image from 'next/image'
-import Link from 'next/link'
+import { useContext } from "react";
+import Image from "next/image";
+import Link from "next/link";
 
-import { Label, Input, Button, WindmillContext } from '@roketid/windmill-react-ui'
+import {
+  Label,
+  Input,
+  Button,
+  WindmillContext
+} from "@roketid/windmill-react-ui";
 
 function ForgotPassword() {
-  const { mode } = useContext(WindmillContext)
-  const imgSource = mode === 'dark' ? '/assets/img/forgot-password-office-dark.jpeg' : '/assets/img/forgot-password-office.jpeg'
+  const { mode } = useContext(WindmillContext);
+  const imgSource =
+    mode === "dark"
+      ? "/assets/img/forgot-password-office-dark.jpeg"
+      : "/assets/img/forgot-password-office.jpeg";
 
   return (
     <div className="flex items-center min-h-screen p-6 bg-gray-50 dark:bg-gray-900">
@@ -18,7 +26,7 @@ function ForgotPassword() {
               className="object-cover w-full h-full"
               src={imgSource}
               alt="Office"
-              layout='fill'
+              layout="fill"
             />
           </div>
           <main className="flex items-center justify-center p-6 sm:p-12 md:w-1/2">
@@ -32,17 +40,17 @@ function ForgotPassword() {
                 <Input className="mt-1" placeholder="Jane Doe" />
               </Label>
 
-            <Link href="/example" passHref={true}>
-              <Button tag={"button"} block className="mt-4">
-                Recover password
-              </Button>
-            </Link>
+              <Link href="/maths" passHref={true}>
+                <Button tag={"button"} block className="mt-4">
+                  Recover password
+                </Button>
+              </Link>
             </div>
           </main>
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default ForgotPassword
+export default ForgotPassword;

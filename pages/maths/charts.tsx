@@ -1,16 +1,16 @@
-import { Doughnut, Line, Bar } from 'react-chartjs-2'
-import ChartCard from 'example/components/Chart/ChartCard'
-import ChartLegend from 'example/components/Chart/ChartLegend'
-import PageTitle from 'example/components/Typography/PageTitle'
-import Layout from 'example/containers/Layout'
+import { Doughnut, Line, Bar } from "react-chartjs-2";
+import ChartCard from "maths/components/Chart/ChartCard";
+import ChartLegend from "maths/components/Chart/ChartLegend";
+import PageTitle from "maths/components/Typography/PageTitle";
+import Layout from "maths/containers/Layout";
 import {
   doughnutOptions,
   lineOptions,
   barOptions,
   doughnutLegends,
   lineLegends,
-  barLegends,
-} from 'utils/demo/chartsData'
+  barLegends
+} from "utils/demo/chartsData";
 import {
   Chart,
   ArcElement,
@@ -21,8 +21,8 @@ import {
   LineElement,
   Title,
   Tooltip,
-  Legend,
-} from 'chart.js'
+  Legend
+} from "chart.js";
 
 function Charts() {
   Chart.register(
@@ -35,7 +35,7 @@ function Charts() {
     Title,
     Tooltip,
     Legend
-  )
+  );
 
   return (
     <Layout>
@@ -58,7 +58,7 @@ function Charts() {
         </ChartCard>
       </div>
     </Layout>
-  )
+  );
 }
 
-export default Charts
+export default Charts;
