@@ -14,8 +14,8 @@ function CrateAccount() {
   const { mode } = useContext(WindmillContext);
   const imgSource =
     mode === "dark"
-      ? "/assets/img/create-account-office-dark.jpeg"
-      : "/assets/img/create-account-office.jpeg";
+      ? "/assets/img/ai_math-dark.jpeg"
+      : "/assets/img/ai_math.jpeg";
 
   return (
     <div className="flex items-center min-h-screen p-6 bg-gray-50 dark:bg-gray-900">
@@ -26,7 +26,7 @@ function CrateAccount() {
               aria-hidden="true"
               className="object-cover w-full h-full"
               src={imgSource}
-              alt="Office"
+              alt="Math Solver"
               layout="fill"
             />
           </div>
@@ -75,15 +75,6 @@ function CrateAccount() {
               </Link>
 
               <hr className="my-8" />
-
-              <Button block layout="outline">
-                <GithubIcon className="w-4 h-4 mr-2" aria-hidden="true" />
-                Github
-              </Button>
-              <Button block className="mt-4" layout="outline">
-                <TwitterIcon className="w-4 h-4 mr-2" aria-hidden="true" />
-                Twitter
-              </Button>
 
               <p className="mt-4">
                 <Link href="/maths/login">

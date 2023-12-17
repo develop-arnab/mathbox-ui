@@ -14,7 +14,7 @@ module.exports = {
     return [
       {
         source: "/",
-        destination: "/maths/login",
+        destination: "/maths/",
         permanent: false
       }
     ];

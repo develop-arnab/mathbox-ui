@@ -14,8 +14,8 @@ function LoginPage() {
   const { mode } = useContext(WindmillContext);
   const imgSource =
     mode === "dark"
-      ? "/assets/img/login-office-dark.jpeg"
-      : "/assets/img/login-office.jpeg";
+      ? "/assets/img/math-solver.jpeg"
+      : "/assets/img/math-solver-dark.jpeg";
 
   return (
     <div className="flex items-center min-h-screen p-6 bg-gray-50 dark:bg-gray-900">
@@ -26,7 +26,7 @@ function LoginPage() {
               aria-hidden="true"
               className="hidden object-cover w-full h-full"
               src={imgSource}
-              alt="Office"
+              alt="Solve Maths"
               layout="fill"
             />
           </div>
@@ -60,15 +60,6 @@ function LoginPage() {
               </Link>
 
               <hr className="my-8" />
-
-              <Button block layout="outline">
-                <GithubIcon className="w-4 h-4 mr-2" aria-hidden="true" />
-                Github
-              </Button>
-              <Button className="mt-4" block layout="outline">
-                <TwitterIcon className="w-4 h-4 mr-2" aria-hidden="true" />
-                Twitter
-              </Button>
 
               <p className="mt-4">
                 <Link href="/maths/forgot-password">

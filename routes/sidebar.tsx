@@ -33,7 +33,7 @@ const routes: IRoute[] = [
     exact: true
   },
   {
-    path: "/maths/matrices",
+    path: "/maths/matrices/cross-product",
     icon: "FormsIcon",
     name: "Matrices"
   },
